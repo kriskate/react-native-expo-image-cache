@@ -47,6 +47,9 @@ export default class CacheManager {
         }
         return CacheManager.entries[uri];
     }
+    static async getInfo(uri: string): Promise<void> {
+        return getCacheEntry(uri);
+    }
 
     static async clearCache(): Promise<void> {
         await FileSystem.deleteAsync(BASE_DIR, { idempotent: true });
